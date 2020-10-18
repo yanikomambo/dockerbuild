@@ -1,0 +1,28 @@
+sudo yum update -y 
+sudo amazon-linux-extras install docker -y
+sudo service docker start  
+sudo service docker status
+
+vi Dockerfile (Pass the data)
+
+#docker build -t jjtechin1/image2 .
+#docker images(check images)
+#docker tag jjtechin1/image2:latest yanikomambo/image3:1.0(must tag before pushing)
+(login into dockerhub before pushing)
+#docker push yanikomambo/image3:1.0
+
+
+ECR----Elastic Container Registry(same like Dockerhub where images are saved)
+aws ecr create-repository --repository-name nginx
+docker pull ngix
+docker tag nginx:latest 380213110535.dkr.ecr.us-east-1.amazonaws.com/nginx:3.0
+(docker login --)
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 380213110535.dkr.ecr.us-east-1.amazonaws.com/nginx
+docker push 380213110535.dkr.ecr.us-east-1.amazonaws.com/nginx:3.0
+
+
+
+
+
+
+	
